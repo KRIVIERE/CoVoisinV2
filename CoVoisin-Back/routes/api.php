@@ -41,3 +41,9 @@ Route::get('offerResponses/{offerResponse}', "OfferResponsesController@show");
 Route::post('offerResponses', 'OfferResponsesController@create');
 Route::put('offerResponses/{offerResponse}', "OfferResponsesController@update");
 Route::delete('offerResponses/{offerResponse}', "OfferResponsesController@delete");
+
+Route::get('requestResponses', 'RequestResponsesController@index');
+Route::get('requestResponses/{requestResponses}', "RequestResponsesController@show");
+Route::post('requestResponses', 'RequestResponsesController@create');
+Route::put('requestResponses/{requestResponses}', "RequestResponsesController@update");
+Route::delete('requestResponses/{requestResponses}', "RequestResponsesController@delete");
