@@ -35,3 +35,9 @@ Route::post('requests', 'RequestsController@create');
 Route::get('requests/{requests}', "RequestsController@show");
 Route::put('requests/{requests}', "RequestsController@update");
 Route::delete('requests/{requests}', "RequestsController@delete");
+
+Route::get('requestResponses', 'RequestResponsesController@index');
+Route::get('requestResponses/{requestResponses}', "RequestResponsesController@show");
+Route::post('requestResponses', 'RequestResponsesController@create');
+Route::put('requestResponses/{requestResponses}', "RequestResponsesController@update");
+Route::delete('requestResponses/{requestResponses}', "RequestResponsesController@delete");
