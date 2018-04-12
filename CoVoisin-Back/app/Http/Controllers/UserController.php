@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use App\Users;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        return Users::all();
     }
 
     /**
@@ -21,7 +23,7 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(array $data)
+/*    public function create(array $data)
     {
         return User::create([
             'username' => $data['username'],
@@ -32,6 +34,14 @@ class UsersController extends Controller
             'phoneNumber' => $data['phoneNumber'],
             'address' => $data['address'],
         ]);
+    }*/
+
+    public function create(Request $request)
+    {
+        $user = Users::create($request->all());
+
+        return response()->json($user, 201);
+
     }
 
     /**
@@ -40,43 +50,20 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function show(User $user)
     {
-        //
+        return $user;
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function update(Request $request, Users $user)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $user->update($request->all());
+        return response()->json($user, 200);
     }
 
     /**
@@ -85,8 +72,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function delete(User $user)
     {
-        //
+        $user->delete();
+
+        return response()->json(null, 204);
+
     }
 }
