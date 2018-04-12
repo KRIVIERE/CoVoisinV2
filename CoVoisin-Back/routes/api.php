@@ -23,3 +23,9 @@ Route::post('users', 'UserController@create');
 Route::get('users/{user}', "UserController@show");
 Route::put('users/{user}', "UserController@update");
 Route::delete('users/{user}', "UserController@delete");
+
+Route::get('requests', 'RequestsController@index');
+Route::post('requests', 'RequestsController@create');
+Route::get('requests/{requests}', "RequestsController@show");
+Route::put('requests/{requests}', "RequestsController@update");
+Route::delete('requests/{requests}', "RequestsController@delete");
