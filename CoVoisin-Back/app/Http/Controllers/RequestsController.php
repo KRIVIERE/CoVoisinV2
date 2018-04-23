@@ -25,9 +25,9 @@ class RequestsController extends Controller
 
     public function create(Request $request)
     {
-        $requests = Requests::create($request->all());
+        $request = Requests::create($request->all());
 
-        return response()->json($requests, 201);
+        return response()->json($request, 201);
 
     }
 
