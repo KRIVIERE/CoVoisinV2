@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Offers extends Model
 {
-    protected $fillable = ['title', 'date', 'category', 'description', 'userId', 'status', 'pointsNumber', 'updated_at', 'created_at'];
+    protected $fillable = ['offerTitle', 'offerDate', 'offerCategory', 'offerDescription', 'offerUserId', 'offerStatus', 'offerPointsNumber', 'offerUpdated_at', 'offerCreated_at'];
 }
